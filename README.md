@@ -1,71 +1,62 @@
-# snippets4D README
+# Snippets4D
 
-This is the README for your extension "snippets4D". After writing up a brief description, we recommend including the following sections.
+**Snippets4D** is a Visual Studio Code extension designed to speed up Delphi (Object Pascal) development by replicating classic Delphi IDE features like auto-generating fields, getters/setters, and GUIDs.
 
-## Features
+## ?? Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### ? Generate Fields and Methods for Properties
 
-For example if there is an image subfolder under your extension project workspace:
+When your cursor is on a `property` line and you press `Ctrl + Shift + C`, the extension:
 
-\!\[feature X\]\(images/feature-x.png\)
+- Creates the corresponding field (`F<Name>`) if referenced in `read` or `write`.
+- Creates `Get` and/or `Set` methods in the `private` section if they are used.
+- Automatically generates the implementation of those methods in the `implementation` section.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+**Additional rules:**
 
-## Requirements
+- Fields and methods are inserted **after the last `F` fields** inside the `private` section.
+- The `private` section is created automatically if it doesn't exist.
+- The extension **checks for existing fields or methods** and avoids duplicate declarations.
+- Implementations are also created only if they don’t already exist.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### ?? Generate Function/Procedure Implementations
 
-## Extension Settings
+When your cursor is on a `function` or `procedure` line and you press `Ctrl + Shift + C`, the extension:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- Automatically creates the implementation block in the `implementation` section.
+- Groups implementations under `{ ClassName }`, adding the comment if missing.
+- Checks for an existing implementation before generating a new one.
 
-For example:
+### ?? Generate Delphi-style GUID
 
-This extension contributes the following settings:
+Press `Ctrl + Shift + G` to insert a Delphi-compatible GUID at your cursor:
+['{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}']
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## ?? Built-in Snippets
 
-## Known Issues
+The following code snippets are also bundled with the extension:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+| Prefix  | Description                      |
+|---------|----------------------------------|
+| `tryf`  | Creates a `try..finally` block   |
+| `trye`  | Creates a `try..except` block    |
+| `ifb`   | Creates an `if` block with `begin/end` |
+| `ift`   | Creates a simple `if` statement without `begin/end` |
+| `rai`   | Creates a `raise` statement      |
+| `propf` | Declares a property with `F` backing field |
+| `c`     | Basic class block                |
+| `b`     | `begin..end` block               |
+| `caseof`| `case..of` block                 |
+| `casec` | A `case` condition line          |
 
-## Release Notes
+> Snippets are triggered based on your configured Delphi/Object Pascal language ID in VS Code.
 
-Users appreciate release notes as you update your extension.
+## ?? Notes
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- Works best with Delphi language extensions that define the correct language ID (e.g., `objectpascal`, `delphi`, etc.).
+- If snippets do not trigger, double-check the language mode in the bottom-right corner of VS Code.
 
 ---
 
-## Following extension guidelines
+Enjoy productivity-boosting Delphi development! ??
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**

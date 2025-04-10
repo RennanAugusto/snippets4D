@@ -1,0 +1,100 @@
+{
+	"Try Finally Block": {
+		"prefix": "tryf",
+		"body": [
+		  "try",
+		  "  $1",
+		  "finally",
+		  "  $2",
+		  "end;"
+		],
+		"description": "try..finally"
+	},
+
+	"Try Except Block": {
+		"prefix": "trye",
+		"body": [
+		  "try",
+		  "  $1",
+		  "except",
+		  "  on e: Exception do begin",
+		  "    $2",
+		  "  end;",
+		  "end;"
+		],
+		"description": "try..except"
+	},
+
+	"IF Block": {
+		"prefix": "ifb",
+		"body": [
+			"if $1True then begin",
+			"  $2",
+			"end;"
+		],
+
+		"description": "IF begin end"
+	},
+
+	"IF then": {
+		"prefix": "ift",
+		"body": [
+			"if $1 then",
+			"  $2"
+		],
+
+		"description": "if then"
+	},
+
+	"Raise": {
+		"prefix": "rai",
+		"body": [
+			"raise $1.Create($2);"
+		],
+		"description": "exception"
+	},
+
+	"PropF":{
+		"prefix": "propf",
+		"body": [
+			"property ${1:Nome}: ${2:Tipo} read F${1:Nome} write F${1:Nome};"
+		],
+		"description": "class property"
+	},
+
+	"Class Block":{
+		"prefix": "c",
+		"body": [
+			"class",
+			"$1",
+			"end;"
+		]
+	},
+
+	"Begin Block": {
+		"prefix": "b",
+		"body": [
+			"begin",
+			"  $1",
+			"end;"
+		]
+	},
+
+	"Case Of Statement": {
+		"prefix": "caseof",
+		"body": [
+			"case ${1:Variavel} of",
+			"  $2",
+			"end;"
+		],
+		"description": "case..of"
+	},
+
+	"Case Condition": {
+		"prefix": "casec",
+		"body": [
+			"${1:Tipo}: $2;"
+		],
+		"description": "case..of condition"
+	}
+}

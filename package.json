@@ -2,9 +2,14 @@
   "name": "snippets4D",
   "displayName": "snippets4D",
   "description": "snippets",
-  "version": "0.0.1",
+  "publisher": "Rennan",
+  "version": "0.0.12",
   "engines": {
     "vscode": "^1.99.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RennanAugusto/snippets4D"
   },
   "categories": [
     "Other"
@@ -37,6 +42,17 @@
         "key": "ctrl+shift+g",
         "when": "editorTextFocus",
         "category": "snippets"
+      }
+    ],
+
+    "snippets": [
+      {
+        "language": "objectpascal",
+        "path": "./snippets/delphi.code-snippets.json"
+      },
+      {
+        "language": "pascal",
+        "path": "./snippets/delphi.code-snippets.json"
       }
     ]
   },
